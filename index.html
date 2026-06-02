@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator Neuroevolusi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Kiri: Kontrol & Statistik -->
+        <aside class="sidebar">
+            <div class="glass-panel header-panel">
+                <h1>NeuroEvolusi</h1>
+                <p>Simulasi Interaktif AI</p>
+            </div>
+
+            <div class="glass-panel controls-panel">
+                <h2>Kontrol Simulasi</h2>
+                <div class="control-group">
+                    <button id="btn-play-pause" class="btn primary">Pause</button>
+                    <button id="btn-reset" class="btn danger">Reset Evolusi</button>
+                </div>
+                
+                <div class="control-group">
+                    <label for="agent-type">Tipe Agen:</label>
+                    <select id="agent-type" class="glass-select">
+                        <option value="drone">🚁 Drone</option>
+                        <option value="car">🚗 Mobil</option>
+                        <option value="ant">🐜 Semut</option>
+                        <option value="fly">🦟 Lalat</option>
+                        <option value="plane">✈️ Pesawat</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Mode Interaksi (Klik & Tarik di Arena):</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="draw-mode" value="obstacle" checked> Gambar Rintangan</label>
+                        <label><input type="radio" name="draw-mode" value="target"> Pindah Target</label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="speed-slider">Kecepatan Simulasi:</label>
+                    <input type="range" id="speed-slider" min="1" max="5" value="1" class="glass-slider">
+                </div>
+            </div>
+
+            <div class="glass-panel stats-panel">
+                <h2>Statistik Generasi</h2>
+                <div class="stat-item">
+                    <span>Generasi:</span>
+                    <span id="stat-generation" class="highlight">1</span>
+                </div>
+                <div class="stat-item">
+                    <span>Populasi Hidup:</span>
+                    <span id="stat-alive" class="highlight">100/100</span>
+                </div>
+                <div class="stat-item">
+                    <span>Max Fitness:</span>
+                    <span id="stat-fitness" class="highlight">0.00</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Area Utama: Simulasi -->
+        <main class="simulation-area">
+            <div class="canvas-wrapper">
+                <canvas id="sim-canvas"></canvas>
+            </div>
+        </main>
+
+        <!-- Sidebar Kanan: Visualisasi AI -->
+        <aside class="sidebar right-sidebar">
+            <div class="glass-panel brain-panel">
+                <h2>Otak Agen Terbaik</h2>
+                <div class="canvas-container">
+                    <canvas id="brain-canvas"></canvas>
+                </div>
+                <p class="desc">Jaringan saraf feedforward real-time.</p>
+            </div>
+
+            <div class="glass-panel chart-panel">
+                <h2>Tren Evolusi (Fitness)</h2>
+                <div class="canvas-container">
+                    <canvas id="chart-canvas"></canvas>
+                </div>
+                <p class="desc">Grafik performa agen per generasi.</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/visualizer.js"></script>
+    <script src="js/neural.js"></script>
+    <script src="js/genetic.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/environment.js"></script>
+    <script src="js/agent.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
